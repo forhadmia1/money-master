@@ -2,6 +2,16 @@
 body{
     background-color: #E5E5E5;
 }
+/* custom style applied here */
 .input-field{
     background-color:#DCDCDC;
+}
+#insuficient-balance{
+    display: none;
+}
+#number-alert{
+    display: none;
+}
+#positive-number-alert{
+    display: none; 
 }

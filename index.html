@@ -19,9 +19,11 @@
         <!-- content section -->
         <section class="container mb-5 mt-5">
             <div class="row">
+                <!-- images side -->
                 <div class="col-md-6">
                     <img class="img-fluid h-100" src="images/euro-g7f4e46048_1280.jpg" alt="">
                 </div>
+                <!-- input side -->
                 <div class="col-md-6 pt-2">
                     <!-- income field -->
                     <div class="income d-flex flex-column align-items-center">
@@ -46,6 +48,8 @@
                             <label class="fw-bold" for="cloth-cost">Clothes:</label>
                             <input class="input-field border border-2 rounded border-secondary" type="text" id="cloth-cost">
                         </div>
+                        <p id="number-alert" class="text-center text-danger fs-5">Please input a number!</p>
+                        <p id="positive-number-alert" class="text-center text-danger fs-5">Please input a positive number!</p>
                         <button id="calculate" class="btn-primary rounded border-0 px-5 py-2 mt-3">Calculate</button>
                         
                     </div>
@@ -60,6 +64,7 @@
                             <span class="fw-bold px-2 fs-5">%</span>
                             <button id="saving" class="btn-primary rounded border-0 px-5 py-1">Save</button>
                         </div>
+                        <p id="insuficient-balance" class="text-center mt-2 text-danger fs-5">You don't have sufficient balance</p>
                     </div>
                     <div class="text-center mt-4">
                         <h4>Saving Amount: <span id="total-saving">00</span></h4>
