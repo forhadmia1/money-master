@@ -58,12 +58,13 @@ document.getElementById('saving').addEventListener('click',function(){
         alert('please input a positive number');
     }else{
         const saveMoney= (income*savingParcent)/100;
+        //validation income & expenses
         if(saveMoney>balance){
             document.getElementById('insuficient-balance').style.display='block';
         }else{
             document.getElementById('insuficient-balance').style.display='none';
             savingField.innerText=saveMoney;
-            remainingField.innerText= remaining(balance,saveMoney);
+            remainingField.innerText= remaining(balance,saveMoney).toFixed(2);
         }
     }
     
