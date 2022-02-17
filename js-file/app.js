@@ -4,15 +4,18 @@ function value(elementId){
     const value=parseFloat(element.value);
     return value;
 }
+
 //calculate remaining
 function remaining (value1,value2){
     const remainingBalance=value1-value2;
     return remainingBalance;
 }
+
 //validation & total calculation
 function totalCalculatea(income,food,rent,cloth){
-    const numAlert = document.getElementById('number-alert')
-    const positiveNumAlert = document.getElementById('positive-number-alert')
+    const numAlert = document.getElementById('number-alert');
+    const positiveNumAlert = document.getElementById('positive-number-alert');
+    const expanseAlert= document.getElementById('expense-alert');
     const totalExpance= document.getElementById('total-expanse');
     const balance= document.getElementById('balance');
     // validation
@@ -27,13 +30,16 @@ function totalCalculatea(income,food,rent,cloth){
         //total claculate
         const totalCost =food+rent+cloth;
         if(totalCost>income){
-            alert('khoros besi korsis he madarchud')
+            expanseAlert.style.display='block';
         }else{
+            //update total cost and balance
+            expanseAlert.style.display='none';
             totalExpance.innerText=totalCost;
             balance.innerText=remaining(income,totalCost);
         }
     }
 }
+
 //calculate button event handle
 document.getElementById('calculate').addEventListener('click',function(){
     const income = value('income-field');
@@ -43,6 +49,7 @@ document.getElementById('calculate').addEventListener('click',function(){
     totalCalculatea(income,foodCost,rentCost,clothCost);
     
 })
+
 // saving button event handle
 document.getElementById('saving').addEventListener('click',function(){
     const income = value('income-field');

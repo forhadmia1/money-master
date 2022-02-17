@@ -15,3 +15,6 @@ body{
 #positive-number-alert{
     display: none; 
 }
+#expense-alert{
+    display: none;
+}
