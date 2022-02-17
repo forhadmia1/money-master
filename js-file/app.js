@@ -25,6 +25,7 @@ function totalCalculatea(income,food,rent,cloth){
     // error handle
     if(isNaN(income)||isNaN(food)||isNaN(rent)||isNaN(cloth)){
         numAlert.style.display='block';
+        positiveNumAlert.style.display='none';
     }else if(income<0||food<0||rent<0||cloth<0){
         numAlert.style.display='none';
         positiveNumAlert.style.display='block';
