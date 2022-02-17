@@ -6,6 +6,7 @@ body{
 .input-field{
     background-color:#DCDCDC;
 }
+/* hide items of error message */
 #insuficient-balance{
     display: none;
 }

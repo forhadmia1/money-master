@@ -12,17 +12,17 @@ function remaining (balance,expense){
 }
 
 //update value in UI
-function update(updateId,value){
-    const updateField= document.getElementById(updateId);
+function update(elementId,value){
+    const updateField= document.getElementById(elementId);
     updateField.innerText=value;
 }
 
-//validation & total calculation
+//validation & total balance calculation
 function totalCalculatea(income,food,rent,cloth){
     const numAlert = document.getElementById('number-alert');
     const positiveNumAlert = document.getElementById('positive-number-alert');
     const expanseAlert= document.getElementById('expense-alert');
-    // validation
+    // error handle
     if(isNaN(income)||isNaN(food)||isNaN(rent)||isNaN(cloth)){
         numAlert.style.display='block';
     }else if(income<0||food<0||rent<0||cloth<0){
@@ -61,7 +61,7 @@ document.getElementById('saving').addEventListener('click',function(){
     const savingParcent= value('save-money');
     const balanceField= document.getElementById('balance').innerText;
     const balance= parseFloat(balanceField);
-    //validation check and total
+    //error handle 
     if(isNaN(savingParcent)){
         alert('please input number');
     }else if(savingParcent<0){
