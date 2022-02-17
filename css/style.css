@@ -1,11 +1,21 @@
 /* common style  */
 body{
-    background-color: #E5E5E5;
+    background-color: #FFFFFF;
 }
 /* custom style applied here */
 .input-field{
     background-color:#DCDCDC;
 }
+.heading-color{
+    color: #31A5AC;
+}
+.input-section{
+    background-color: #F8F8F8;
+}
+.all-input-field{
+    padding-top: 30px;
+}
+
 /* hide items of error message */
 #insuficient-balance{
     display: none;
