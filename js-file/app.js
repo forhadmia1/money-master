@@ -60,6 +60,7 @@ document.getElementById('calculate').addEventListener('click',function(){
 document.getElementById('saving').addEventListener('click',function(){
     const income = value('income-field');
     const savingParcent= value('save-money');
+    const errorMessage= document.getElementById('insuficient-balance');
     const balanceField= document.getElementById('balance').innerText;
     const balance= parseFloat(balanceField);
     //error handle 
@@ -71,9 +72,9 @@ document.getElementById('saving').addEventListener('click',function(){
         const saveMoney= (income*savingParcent)/100;
         //validation income & expenses
         if(saveMoney>balance){
-            document.getElementById('insuficient-balance').style.display='block';
+            errorMessage.style.display='block';
         }else{
-            document.getElementById('insuficient-balance').style.display='none';
+            errorMessage.style.display='none';
             update('total-saving',saveMoney)
             const remainingBalance= remaining(balance,saveMoney).toFixed(2);
             update('remaining-balance',remainingBalance)
