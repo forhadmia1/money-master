@@ -6,9 +6,15 @@ function value(elementId){
 }
 
 //calculate remaining
-function remaining (value1,value2){
-    const remainingBalance=value1-value2;
+function remaining (balance,expense){
+    const remainingBalance= balance-expense;
     return remainingBalance;
+}
+
+//update value in UI
+function update(updateId,value){
+    const updateField= document.getElementById(updateId);
+    updateField.innerText=value;
 }
 
 //validation & total calculation
@@ -16,8 +22,6 @@ function totalCalculatea(income,food,rent,cloth){
     const numAlert = document.getElementById('number-alert');
     const positiveNumAlert = document.getElementById('positive-number-alert');
     const expanseAlert= document.getElementById('expense-alert');
-    const totalExpance= document.getElementById('total-expanse');
-    const balance= document.getElementById('balance');
     // validation
     if(isNaN(income)||isNaN(food)||isNaN(rent)||isNaN(cloth)){
         numAlert.style.display='block';
@@ -34,8 +38,9 @@ function totalCalculatea(income,food,rent,cloth){
         }else{
             //update total cost and balance
             expanseAlert.style.display='none';
-            totalExpance.innerText=totalCost;
-            balance.innerText=remaining(income,totalCost);
+            update('total-expanse',totalCost);
+            const Balance=remaining(income,totalCost);
+            update('balance',Balance);
         }
     }
 }
@@ -56,13 +61,11 @@ document.getElementById('saving').addEventListener('click',function(){
     const savingParcent= value('save-money');
     const balanceField= document.getElementById('balance').innerText;
     const balance= parseFloat(balanceField);
-    const savingField =document.getElementById('total-saving');
-    const remainingField = document.getElementById('remaining-balance');
     //validation check and total
     if(isNaN(savingParcent)){
-        alert('please input a number');
+        alert('please input number');
     }else if(savingParcent<0){
-        alert('please input a positive number');
+        alert('please input positive number');
     }else{
         const saveMoney= (income*savingParcent)/100;
         //validation income & expenses
@@ -70,9 +73,9 @@ document.getElementById('saving').addEventListener('click',function(){
             document.getElementById('insuficient-balance').style.display='block';
         }else{
             document.getElementById('insuficient-balance').style.display='none';
-            savingField.innerText=saveMoney;
-            remainingField.innerText= remaining(balance,saveMoney).toFixed(2);
+            update('total-saving',saveMoney)
+            const remainingBalance= remaining(balance,saveMoney).toFixed(2);
+            update('remaining-balance',remainingBalance)
         }
-    }
-    
+    } 
 })
